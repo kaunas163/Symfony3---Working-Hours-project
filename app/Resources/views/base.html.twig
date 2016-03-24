@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>{% block title %}Working Hours{% endblock %}</title>
+		<link rel="stylesheet" href="{{ asset('bundles/workinghours/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('bundles/workinghours/css/style.css') }}">
+		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Working Hours</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/category">Home</a></li>
+					<li><a href="/category/create">Create category</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="container">
+			{% block body %}{% endblock %}
+		</div>
+		
+		<footer>
+			2016 &copy; Ieva Jakšaitytė
+		</footer>
+		
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>

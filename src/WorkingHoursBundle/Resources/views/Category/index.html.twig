@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h1>Kategorijos</h1>
+
+	<table class="table table-striped table-hover ">
+		<thead>
+			<tr>
+				<th>Pavadinimas</th>
+				<th>Aprašymas</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Megusta.lt puslapio dizainas</td>
+				<td>Dizaino atnaujinimas, padarant responsive, vėliau užmauti ant Wordpress sistemos</td>
+				<td>
+					<a href="/category/edit/1" class="btn btn-default">Edit</a>
+					<a href="/category/delete/1" class="btn btn-danger">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table> 
+
+{% endblock %}

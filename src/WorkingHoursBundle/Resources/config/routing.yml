@@ -1,0 +1,15 @@
+working_hours_category_index:
+    path:    /category
+    defaults: { _controller: WorkingHoursBundle:Category:index }
+
+working_hours_category_create:
+    path:    /category/create
+    defaults: { _controller: WorkingHoursBundle:Category:create }
+
+working_hours_category_edit:
+    path:    /category/edit/{id}
+    defaults: { _controller: WorkingHoursBundle:Category:edit }
+
+working_hours_category_delete:
+    path:    /category/delete/{id}
+    defaults: { _controller: WorkingHoursBundle:Category:delete }
