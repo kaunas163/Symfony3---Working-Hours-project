@@ -10,6 +10,7 @@
 				<th>Pavadinimas</th>
 				<th>Aprašymas</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -17,10 +18,8 @@
 			<tr>
 				<td>{{ category.title }}</td>
 				<td>{{ category.description }}</td>
-				<td>
-					<a href="/category/edit/{{category.id}}" class="btn btn-default">Redaguoti</a>
-					<a href="/category/delete/{{category.id}}" class="btn btn-danger">Šalinti</a>
-				</td>
+				<td><a href="/category/edit/{{category.id}}" class="btn btn-default">Redaguoti</a></td>
+                <td><a href="/category/delete/{{category.id}}" class="btn btn-danger">Šalinti</a></td>
 			</tr>
             {% endfor %}
 		</tbody>

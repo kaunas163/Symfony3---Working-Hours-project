@@ -50,13 +50,50 @@ class CategoryController extends Controller
         return $this->render('WorkingHoursBundle:Category:create.html.twig', array('form' => $form->createView()));
     }
     
-    public function editAction($id)
+    public function editAction($id, Request $request)
     {
-        return $this->render('WorkingHoursBundle:Category:edit.html.twig');
+        $category = $this->getDoctrine()->getRepository('WorkingHoursBundle:categories')->find($id);
+        
+        $category->setTitle($category->getTitle());
+        $category->setDescription($category->getDescription());
+
+        $form = $this->createFormBuilder($category)
+                ->add('title', TextType::class, array('label' => 'Antraštė', 'attr' => array('class' => 'form-control')))
+                ->add('description', TextareaType::class, array('label' => 'Aprašymas', 'attr' => array('class' => 'form-control')))
+                ->add('save', SubmitType::class, array('label' => 'Atnaujinti', 'attr' => array('class' => 'btn btn-primary')))
+                ->getForm();
+        
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $title = $form['title']->getData();
+            $description = $form['description']->getData();
+            
+            $em = $this->getDoctrine()->getManager();
+            $category = $em->getRepository('WorkingHoursBundle:categories')->find($id);
+            
+            $category->setTitle($title);
+            $category->setDescription($description);
+            
+            $em->flush();
+            
+            $this->addFlash('notice', 'Kategorija atnaujinta');
+            
+            return $this->redirectToRoute('working_hours_category_index');
+        }
+        
+        return $this->render('WorkingHoursBundle:Category:edit.html.twig', array('category' => $category, 'form' => $form->createView()));
     }
     
-    public function deleteAction($id)
+    public function deleteAction($id, Request $request)
     {
-        return $this->render('WorkingHoursBundle:Category:delete.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository('WorkingHoursBundle:categories')->find($id);
+        
+        $em->remove($category);
+        $em->flush();
+        
+        $this->addFlash('notice', 'Kategorija pašalinta');
+        return $this->redirectToRoute('working_hours_category_index');
     }
 }
