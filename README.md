@@ -1,4 +1,9 @@
-If you want to use my bundle, just use everything from src/WorkingHoursBundle
-I also edited base view, so I would have navigation and footer without editing all views pages.
+Installation:
 
-Currently work is still in the progress...
+> Install symfony3 as usual
+
+> Copy "WorkingHoursBundle" from src directory to your symfony3 intstallion src directory
+
+> Adjust or overwrite app/Resources/views/base.html.twig and app/Resources/views/default/index.html.twig files
+
+P.S. Work is currently in progress...
