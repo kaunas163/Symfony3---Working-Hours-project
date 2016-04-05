@@ -5,12 +5,12 @@ namespace WorkingHoursBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categories
+ * Projects
  *
- * @ORM\Table(name="categories")
+ * @ORM\Table(name="projects", indexes={@ORM\Index(name="category_id", columns={"category_id"})})
  * @ORM\Entity
  */
-class Categories
+class Projects
 {
     /**
      * @var string
@@ -35,6 +35,16 @@ class Categories
      */
     private $id;
 
+    /**
+     * @var \WorkingHoursBundle\Entity\Categories
+     *
+     * @ORM\ManyToOne(targetEntity="WorkingHoursBundle\Entity\Categories")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * })
+     */
+    private $category;
+
 
 
     /**
@@ -42,7 +52,7 @@ class Categories
      *
      * @param string $title
      *
-     * @return Categories
+     * @return Projects
      */
     public function setTitle($title)
     {
@@ -66,7 +76,7 @@ class Categories
      *
      * @param string $description
      *
-     * @return Categories
+     * @return Projects
      */
     public function setDescription($description)
     {
@@ -94,8 +104,28 @@ class Categories
     {
         return $this->id;
     }
-    
-    public function __toString() {
-        return $this->title;
+
+    /**
+     * Set category
+     *
+     * @param \WorkingHoursBundle\Entity\Categories $category
+     *
+     * @return Projects
+     */
+    public function setCategory(\WorkingHoursBundle\Entity\Categories $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \WorkingHoursBundle\Entity\Categories
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

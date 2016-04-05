@@ -1,0 +1,50 @@
+<?php
+
+namespace WorkingHoursBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projects
+ *
+ * @ORM\Table(name="projects", indexes={@ORM\Index(name="category_id", columns={"category_id"})})
+ * @ORM\Entity
+ */
+class Projects
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \WorkingHoursBundle\Entity\Categories
+     *
+     * @ORM\ManyToOne(targetEntity="WorkingHoursBundle\Entity\Categories")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * })
+     */
+    private $category;
+
+
+}
+

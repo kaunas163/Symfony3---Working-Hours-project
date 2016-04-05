@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Works list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Starttime</th>
+                <th>Endtime</th>
+                <th>Comment</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for work in works %}
+            <tr>
+                <td><a href="{{ path('works_show', { 'id': work.id }) }}">{{ work.date }}</a></td>
+                <td>{% if work.startTime %}{{ work.startTime|date('H:i:s') }}{% endif %}</td>
+                <td>{% if work.endTime %}{{ work.endTime|date('H:i:s') }}{% endif %}</td>
+                <td>{{ work.comment }}</td>
+                <td>{{ work.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('works_show', { 'id': work.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('works_edit', { 'id': work.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('works_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

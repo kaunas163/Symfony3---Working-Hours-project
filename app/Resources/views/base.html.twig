@@ -21,7 +21,9 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="/category">Kategorijos</a></li>
+					<li><a href="/categories">Categories</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/works">Works</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -33,11 +35,10 @@
 				{% endfor %}
 				{% block body %}{% endblock %}
 			</div>
+            <footer>
+                    2016 &copy; Ieva Jakšaitytė
+                </footer>
 		</div>
-		
-		<footer>
-			2016 &copy; Ieva Jakšaitytė
-		</footer>
 		
 		{% block javascripts %}{% endblock %}
 	</body>

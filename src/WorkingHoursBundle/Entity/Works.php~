@@ -1,0 +1,64 @@
+<?php
+
+namespace WorkingHoursBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Works
+ *
+ * @ORM\Table(name="works", indexes={@ORM\Index(name="project_id", columns={"project_id"})})
+ * @ORM\Entity
+ */
+class Works
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_time", type="time", nullable=false)
+     */
+    private $startTime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_time", type="time", nullable=false)
+     */
+    private $endTime;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=255, nullable=true)
+     */
+    private $comment;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \WorkingHoursBundle\Entity\Projects
+     *
+     * @ORM\ManyToOne(targetEntity="WorkingHoursBundle\Entity\Projects")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     * })
+     */
+    private $project;
+
+
+}
+

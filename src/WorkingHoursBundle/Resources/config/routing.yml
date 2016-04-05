@@ -6,6 +6,10 @@ working_hours_category_create:
     path:    /category/create
     defaults: { _controller: WorkingHoursBundle:Category:create }
 
+working_hours_category_view:
+    path:    /category/view/{id}
+    defaults: { _controller: WorkingHoursBundle:Category:view }
+
 working_hours_category_edit:
     path:    /category/edit/{id}
     defaults: { _controller: WorkingHoursBundle:Category:edit }

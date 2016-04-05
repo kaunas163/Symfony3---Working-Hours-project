@@ -1,3 +1,15 @@
+working_hours_works:
+    resource: "@WorkingHoursBundle/Controller/WorksController.php"
+    type:     annotation
+
+working_hours_projects:
+    resource: "@WorkingHoursBundle/Controller/ProjectsController.php"
+    type:     annotation
+
+working_hours_categories:
+    resource: "@WorkingHoursBundle/Controller/CategoriesController.php"
+    type:     annotation
+
 working_hours:
     resource: "@WorkingHoursBundle/Resources/config/routing.yml"
     prefix:   /
