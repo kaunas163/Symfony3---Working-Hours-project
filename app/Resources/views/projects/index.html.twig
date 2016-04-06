@@ -15,6 +15,7 @@
         <tbody>
         {% for project in projects %}
             <tr>
+                {#TODO:needs to show category#}
                 <td><a href="{{ path('projects_show', { 'id': project.id }) }}">{{ project.title }}</a></td>
                 <td>{{ project.description }}</td>
                 <td>{{ project.id }}</td>

@@ -4,6 +4,8 @@ namespace WorkingHoursBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class WorksType extends AbstractType
@@ -15,9 +17,9 @@ class WorksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', 'date')
-            ->add('startTime', 'time')
-            ->add('endTime', 'time')
+            ->add('date', DateType::class)
+            ->add('startTime', TimeType::class)
+            ->add('endTime', TimeType::class)
             ->add('comment')
             ->add('project')
         ;
