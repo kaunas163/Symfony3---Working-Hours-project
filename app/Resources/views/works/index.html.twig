@@ -10,18 +10,18 @@
                 <th>Starttime</th>
                 <th>Endtime</th>
                 <th>Comment</th>
-                <th>Id</th>
+                <th>Project</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for work in works %}
             <tr>
-                <td><a href="{{ path('works_show', { 'id': work.id }) }}">{{ work.date }}</a></td>
+                <td><a href="{{ path('works_show', { 'id': work.id }) }}">{{ work.date|date('Y-m-d') }}</a></td>
                 <td>{% if work.startTime %}{{ work.startTime|date('H:i:s') }}{% endif %}</td>
                 <td>{% if work.endTime %}{{ work.endTime|date('H:i:s') }}{% endif %}</td>
                 <td>{{ work.comment }}</td>
-                <td>{{ work.id }}</td>
+                <td>{{ work.project }}</td>
                 <td>
                     <ul>
                         <li>
