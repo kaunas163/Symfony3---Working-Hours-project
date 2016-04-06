@@ -41,3 +41,4 @@ Todo:
  * Make user registration and login.
  * Restrict pages access so user can access only his data.
  * Use more bootstrap classes.
+ * Move stuff from app/ to WorkingHoursBundle so my code could be implemented in other projects easier.
