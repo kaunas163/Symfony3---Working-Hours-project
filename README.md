@@ -9,7 +9,7 @@ Installation
 Run these commands to install application:
 
 ```
-https://github.com/kaunas163/Symfony3---Working-Hours-project.git
+git clone https://github.com/kaunas163/Symfony3---Working-Hours-project.git
 composer install
 ```
 
