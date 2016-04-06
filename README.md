@@ -43,3 +43,4 @@ Todo:
  * Use more bootstrap classes.
  * Move stuff from app/ to WorkingHoursBundle so my code could be implemented in other projects easier.
  * Do funcionality on categories, projects and works archivings, so user can hide what he doesn't need anymore.
+ * Tables sortings acs/desc and data filtering/searching

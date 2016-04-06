@@ -2,13 +2,15 @@
 
 {% block body %}
     <h1>Works list</h1>
+    
+    <a href="{{ path('works_new') }}" class="btn btn-success">New work</a>
 
-    <table>
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Starttime</th>
-                <th>Endtime</th>
+                <th>Start</th>
+                <th>End</th>
                 <th>Comment</th>
                 <th>Project</th>
                 <th>Actions</th>
@@ -18,28 +20,16 @@
         {% for work in works %}
             <tr>
                 <td><a href="{{ path('works_show', { 'id': work.id }) }}">{{ work.date|date('Y-m-d') }}</a></td>
-                <td>{% if work.startTime %}{{ work.startTime|date('H:i:s') }}{% endif %}</td>
-                <td>{% if work.endTime %}{{ work.endTime|date('H:i:s') }}{% endif %}</td>
+                <td>{% if work.startTime %}{{ work.startTime|date('H:i') }}{% endif %}</td>
+                <td>{% if work.endTime %}{{ work.endTime|date('H:i') }}{% endif %}</td>
                 <td>{{ work.comment }}</td>
                 <td>{{ work.project }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('works_show', { 'id': work.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('works_edit', { 'id': work.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('works_show', { 'id': work.id }) }}" class="btn btn-primary">View</a>
+                    <a href="{{ path('works_edit', { 'id': work.id }) }}" class="btn btn-warning">Edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('works_new') }}">Create a new entry</a>
-        </li>
-    </ul>
 {% endblock %}

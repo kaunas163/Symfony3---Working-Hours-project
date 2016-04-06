@@ -2,13 +2,14 @@
 
 {% block body %}
     <h1>Categories list</h1>
+    
+    <a href="{{ path('categories_new') }}" class="btn btn-success">New category</a>
 
-    <table>
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Id</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,25 +18,12 @@
             <tr>
                 <td><a href="{{ path('categories_show', { 'id': category.id }) }}">{{ category.title }}</a></td>
                 <td>{{ category.description }}</td>
-                <td>{{ category.id }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categories_show', { 'id': category.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categories_edit', { 'id': category.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('categories_show', { 'id': category.id }) }}" class="btn btn-primary">View</a>
+                    <a href="{{ path('categories_edit', { 'id': category.id }) }}" class="btn btn-warning">Edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categories_new') }}">Create a new entry</a>
-        </li>
-    </ul>
 {% endblock %}
