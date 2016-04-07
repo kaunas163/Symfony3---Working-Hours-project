@@ -26,7 +26,7 @@
                 <td>{{ work.project }}</td>
                 <td>
                     <a href="{{ path('works_show', { 'id': work.id }) }}" class="btn btn-primary">View</a>
-                    <a href="{{ path('works_edit', { 'id': work.id }) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ path('works_edit', { 'id': work.id }) }}" class="btn btn-default">Edit</a>
                 </td>
             </tr>
         {% endfor %}

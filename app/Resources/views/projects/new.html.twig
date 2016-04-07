@@ -5,12 +5,6 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Create" class="btn btn-primary"/><a href="{{ path('projects_index') }}" class="btn btn-default">Cancel</a>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('projects_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

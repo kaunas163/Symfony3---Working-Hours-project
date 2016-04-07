@@ -20,7 +20,7 @@
                 <td>{{ category.description }}</td>
                 <td>
                     <a href="{{ path('categories_show', { 'id': category.id }) }}" class="btn btn-primary">View</a>
-                    <a href="{{ path('categories_edit', { 'id': category.id }) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ path('categories_edit', { 'id': category.id }) }}" class="btn btn-default">Edit</a>
                 </td>
             </tr>
         {% endfor %}
