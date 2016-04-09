@@ -20,17 +20,10 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('projects_index') }}">Back</a>
-        </li>
-        <li>
-            <a href="{{ path('projects_edit', { 'id': project.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('projects_index') }}" class="btn btn-primary">Back</a>
+    <a href="{{ path('projects_edit', { 'id': project.id }) }}" class="btn btn-default">Edit</a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+    
 {% endblock %}
