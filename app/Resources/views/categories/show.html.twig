@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Categories</h1>
 
-    <table>
+    <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>Title</th>
@@ -16,17 +16,9 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('categories_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('categories_edit', { 'id': category.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete" class="btn btn-primary">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a href="{{ path('categories_index') }}" class="btn btn-primary">Back</a>
+    <a href="{{ path('categories_edit', { 'id': category.id }) }}" class="btn btn-default">Edit</a>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-danger">
+    {{ form_end(delete_form) }}
 {% endblock %}

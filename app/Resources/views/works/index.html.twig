@@ -3,8 +3,6 @@
 {% block body %}
     <h1>Works</h1>
     
-    <a href="{{ path('works_new') }}" class="btn btn-success">New work</a>
-
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -32,4 +30,7 @@
         {% endfor %}
         </tbody>
     </table>
+    
+    <a href="{{ path('works_new') }}" class="btn btn-success">New work</a>    
+    
 {% endblock %}

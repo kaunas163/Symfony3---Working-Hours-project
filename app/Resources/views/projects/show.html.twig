@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Projects</h1>
 
-    <table>
+    <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>Title</th>
@@ -22,7 +22,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('projects_index') }}">Back to the list</a>
+            <a href="{{ path('projects_index') }}">Back</a>
         </li>
         <li>
             <a href="{{ path('projects_edit', { 'id': project.id }) }}">Edit</a>
