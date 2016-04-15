@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Categories
  *
- * @ORM\Table(name="categories")
+ * @ORM\Table(name="categories", indexes={@ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */
 class Categories
@@ -34,6 +34,16 @@ class Categories
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var \WorkingHoursBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="WorkingHoursBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
 
 
@@ -94,8 +104,28 @@ class Categories
     {
         return $this->id;
     }
-    
-    public function __toString() {
-        return $this->title;
+
+    /**
+     * Set user
+     *
+     * @param \WorkingHoursBundle\Entity\Users $user
+     *
+     * @return Categories
+     */
+    public function setUser(\WorkingHoursBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \WorkingHoursBundle\Entity\Users
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

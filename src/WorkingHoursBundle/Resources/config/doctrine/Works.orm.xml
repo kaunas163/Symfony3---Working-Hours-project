@@ -3,6 +3,7 @@
   <entity name="WorkingHoursBundle\Entity\Works" table="works">
     <indexes>
       <index name="project_id" columns="project_id"/>
+      <index name="user_id" columns="user_id"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
@@ -15,6 +16,11 @@
         <option name="fixed"/>
       </options>
     </field>
+    <many-to-one field="user" target-entity="Users" fetch="LAZY">
+      <join-columns>
+        <join-column name="user_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
     <many-to-one field="project" target-entity="Projects" fetch="LAZY">
       <join-columns>
         <join-column name="project_id" referenced-column-name="id"/>

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Projects
  *
- * @ORM\Table(name="projects", indexes={@ORM\Index(name="category_id", columns={"category_id"})})
+ * @ORM\Table(name="projects", indexes={@ORM\Index(name="category_id", columns={"category_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */
 class Projects
@@ -34,6 +34,16 @@ class Projects
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var \WorkingHoursBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="WorkingHoursBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     /**
      * @var \WorkingHoursBundle\Entity\Categories
@@ -106,6 +116,30 @@ class Projects
     }
 
     /**
+     * Set user
+     *
+     * @param \WorkingHoursBundle\Entity\Users $user
+     *
+     * @return Projects
+     */
+    public function setUser(\WorkingHoursBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \WorkingHoursBundle\Entity\Users
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * Set category
      *
      * @param \WorkingHoursBundle\Entity\Categories $category
@@ -127,10 +161,5 @@ class Projects
     public function getCategory()
     {
         return $this->category;
-    }
-    
-    public function __toString()
-    {
-        return $this->title;
     }
 }

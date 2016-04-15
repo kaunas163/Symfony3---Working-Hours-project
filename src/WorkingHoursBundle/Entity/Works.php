@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Works
  *
- * @ORM\Table(name="works", indexes={@ORM\Index(name="project_id", columns={"project_id"})})
+ * @ORM\Table(name="works", indexes={@ORM\Index(name="project_id", columns={"project_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity
  */
 class Works
@@ -48,6 +48,16 @@ class Works
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var \WorkingHoursBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="WorkingHoursBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     /**
      * @var \WorkingHoursBundle\Entity\Projects
@@ -165,6 +175,30 @@ class Works
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \WorkingHoursBundle\Entity\Users $user
+     *
+     * @return Works
+     */
+    public function setUser(\WorkingHoursBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \WorkingHoursBundle\Entity\Users
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
