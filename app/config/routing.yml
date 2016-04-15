@@ -9,6 +9,10 @@ working_hours_projects:
 working_hours_categories:
     resource: "@WorkingHoursBundle/Controller/CategoriesController.php"
     type:     annotation
+    
+working_hours_users:
+    resource: "@WorkingHoursBundle/Controller/UserController.php"
+    type:     annotation
 
 working_hours:
     resource: "@WorkingHoursBundle/Resources/config/routing.yml"
