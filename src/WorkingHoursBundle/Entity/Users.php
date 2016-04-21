@@ -2,6 +2,7 @@
 
 namespace WorkingHoursBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,22 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class Users
+class Users extends BaseUser
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=50, nullable=false)
-     */
-    private $username;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=50, nullable=false)
-     */
-    private $password;
-
     /**
      * @var string
      *
@@ -33,23 +20,10 @@ class Users
      */
     private $about;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=100, nullable=false)
-     */
-    private $email;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Set username
