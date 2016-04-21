@@ -39,12 +39,12 @@ What is done:
  * Created database tables and doctrine entities.
  * Created all needed controllers and views for CRUD on these types of data: categories, projects, works.
  * Attached bootstrap.
+ * Make user registration and login.
 
 Todo:
- * Count total times
- * Make user registration and login.
+ * Count total times.
  * Restrict pages access so user can access only his data.
  * Move stuff from app/ to WorkingHoursBundle so my code could be implemented in other projects easier.
  * Do funcionality on categories, projects and works archivings, so user can hide what he doesn't need anymore.
- * Tables sortings acs/desc and data filtering/searching
- * Paging of everything
+ * Tables sortings acs/desc and data filtering/searching.
+ * Paging of everything.
