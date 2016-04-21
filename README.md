@@ -10,6 +10,7 @@ Run these commands to install application:
 
 ```
 git clone https://github.com/kaunas163/Symfony3---Working-Hours-project.git
+cd Symfony3---Working-Hours-project
 composer install
 ```
 
@@ -21,6 +22,8 @@ Then run some more commands which will create database and all needed tables:
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:create
 ```
+
+If first doctrine command doesn't work and it says that database exists (maybe you created by yourself, or you haven't changed parametrers.yml file), so do only second command, or change to which database to execute sql scripts.
 
 To run application use command:
 ```
