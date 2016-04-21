@@ -46,6 +46,8 @@ class ProjectsController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $project->setUser($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($project);
             $em->flush();

@@ -18,15 +18,25 @@ class ProjectsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, array(
-                'attr' => array('class' => 'form-control'))
+            ->add('title', TextType::class, [
+                    'attr' => [
+                        'class' => 'form-control'
+                    ]
+                ]
             )
-            ->add('description', TextareaType::class, array(
-                'attr' => array('class' => 'form-control'))
+            ->add('description', TextareaType::class, [
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
+                    'required' => false
+                ]
             )
-            ->add('category', EntityType::class, array(
-                'class' => 'WorkingHoursBundle:Categories',
-                'attr' => array('class' => 'form-control'))
+            ->add('category', EntityType::class, [
+                    'class' => 'WorkingHoursBundle:Categories',
+                    'attr' => [
+                        'class' => 'form-control'
+                    ]
+                ]
             )
         ;
     }

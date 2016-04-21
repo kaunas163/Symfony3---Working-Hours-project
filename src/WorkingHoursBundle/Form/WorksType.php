@@ -19,32 +19,33 @@ class WorksType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class, array(
-                'attr' => array(
+            ->add('date', DateType::class, [
+                'attr' => [
                     'class' => 'form-control'
-                )
-            ))
-            ->add('startTime', TimeType::class, array(
-                'attr' => array(
+                ]
+            ])
+            ->add('startTime', TimeType::class, [
+                'attr' => [
                     'class' => 'form-control'
-                )
-            ))
-            ->add('endTime', TimeType::class, array(
-                'attr' => array(
+                ]
+            ])
+            ->add('endTime', TimeType::class, [
+                'attr' => [
                     'class' => 'form-control'
-                )
-            ))
-            ->add('comment', TextType::class, array(
-                'attr' => array(
+                ]
+            ])
+            ->add('comment', TextType::class, [
+                'attr' => [
                     'class' => 'form-control'
-                )
-            ))
-            ->add('project', EntityType::class, array(
+                ],
+                'required' => false
+            ])
+            ->add('project', EntityType::class, [
                 'class' => 'WorkingHoursBundle:Projects',
-                'attr' => array(
+                'attr' => [
                     'class' => 'form-control'
-                )
-            ))
+                ]
+            ])
         ;
     }
     

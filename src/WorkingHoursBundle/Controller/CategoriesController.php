@@ -46,6 +46,8 @@ class CategoriesController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $category->setUser($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();

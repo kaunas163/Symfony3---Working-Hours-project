@@ -46,6 +46,8 @@ class WorksController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $work->setUser($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($work);
             $em->flush();
